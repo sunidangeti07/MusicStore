@@ -15,7 +15,7 @@ steps:
 
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'restore'
+      command: 'build'
       feedsToUse: 'select'
       versioningScheme: 'off' 
 
@@ -27,5 +27,5 @@ steps:
   - task: Npm@1
     inputs:
       command: install
-      workingDir: ./MusicStore/MusicStore/ClientApp/    
+      workingDir: MusicStore/ClientApp/    
            
