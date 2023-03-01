@@ -19,6 +19,13 @@ steps:
       feedsToUse: 'select'
       versioningScheme: 'off' 
 
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'test'
+      feedsToUse: 'select'
+      versioningScheme: 'off'
+      publishTestResults: yes
   - task: NodeTool@0      
     inputs:
       versionSource: 'spec'     
