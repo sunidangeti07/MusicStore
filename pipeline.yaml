@@ -27,5 +27,19 @@ steps:
   - task: Npm@1
     inputs:
       command: install
-      workingDir: MusicStore/ClientApp/    
-           
+      workingDir: MusicStore/ClientApp/ 
+
+  - task: PublishTestResults@2       
+    inputs:
+      command: test
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/TEST-*.xml'
+      searchFolder: '$(System.DefaultWorkingDirectory)'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop' 
+      publishLocation: 'Container'     
+
+          
